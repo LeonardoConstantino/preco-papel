@@ -2,7 +2,7 @@
   "name": "preco-papel",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "module","homepage": "https://leonardoconstantino.github.io/preco-papel/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
