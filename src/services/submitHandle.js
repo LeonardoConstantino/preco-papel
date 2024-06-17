@@ -20,15 +20,16 @@ export const submitHandle = (e) => {
 		// Obtém os valores dos elementos do formulário
 		const formElements = document.querySelector('#papelForm').elements
 
-		const objPrecoPapel = Array.from(formElements).reduce((acc, ele) => {
-			if (ele.name) {
-				acc[ele.name] = ele.value
-			}
-			return acc
-		}, {})
+		const objPrecoPapel = {};
 
-		objPrecoPapel['id'] = Date.now()
-		// Desestruturação dos valores do formulário e validação
+		for (let ele of formElements) {
+			if (ele.name) {
+				objPrecoPapel[ele.name] = ele.value;
+			}
+		}
+
+		objPrecoPapel['id'] = Date.now();
+		
 		const dadosSanitizados = sanitizaCampos(objPrecoPapel)
 
 		if (!dadosSanitizados) {
