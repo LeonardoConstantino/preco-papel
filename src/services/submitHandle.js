@@ -9,9 +9,6 @@ import { salvaLocalStorage, dados, itens } from './localStorageHandle.js'
  *
  * @param {Event} e - O evento de submissão do formulário.
  *
- * @example
- * // Exemplo de uso:
- * document.querySelector('form').addEventListener('submit', submitHandle);
  */
 export const submitHandle = (e) => {
 	try {
@@ -20,27 +17,25 @@ export const submitHandle = (e) => {
 		// Obtém os valores dos elementos do formulário
 		const formElements = document.querySelector('#papelForm').elements
 
-		const objPrecoPapel = {};
+		const objPrecoPapel = {}
 
 		for (let ele of formElements) {
 			if (ele.name) {
-				objPrecoPapel[ele.name] = ele.value;
+				objPrecoPapel[ele.name] = ele.value
 			}
 		}
 
-		objPrecoPapel['id'] = Date.now();
-		
+		objPrecoPapel['id'] = Date.now()
+
 		const dadosSanitizados = sanitizaCampos(objPrecoPapel)
 
 		if (!dadosSanitizados) {
-			showSnackbar('Erro na validação dos campos.')
+			showSnackbar('Erro na validação dos campos.', 5000)
 			return
 		}
 
 		dadosSanitizados['precoPorMetro'] =
 			calculatePricePerMeterAdjusted(dadosSanitizados)
-
-		addDadosTabela(dadosSanitizados)
 
 		itens.push(dadosSanitizados)
 
@@ -53,6 +48,8 @@ export const submitHandle = (e) => {
 		)[0]['lowPrice'] = true
 
 		salvaLocalStorage('preco-papel', dados)
+
+		addDadosTabela(dadosSanitizados)
 
 		// Limpar o formulário após submissão
 		document.querySelector('form').reset()
