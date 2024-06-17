@@ -24,7 +24,7 @@ const validateTextField = (value, fieldName) => {
 		console.error(errorMessage)
 		return null
 	}
-	return value
+	return value.trim()
 }
 
 /**
