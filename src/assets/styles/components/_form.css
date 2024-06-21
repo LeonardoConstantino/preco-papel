@@ -1,12 +1,12 @@
 form {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-content: center;
-	gap: 6px;
-	padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 6px;
+  padding: 0 30px;
 }
 form * {
-	/* min-width: 50%; */
-	width: 100%;
+  /* min-width: 50%; */
+  width: 100%;
 }

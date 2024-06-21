@@ -1,4 +1,5 @@
 @import url('./base/_reset.css');
+@import url('./base/_typography.css');
 
 @import url('./components/_form.css');
 @import url('./components/_table.css');

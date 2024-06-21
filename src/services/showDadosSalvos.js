@@ -10,7 +10,7 @@ import { addDadosTabela } from './addDadosTabela.js'
  * // Isso irá iterar sobre cada item em 'itens' e adicionar os dados à tabela.
  */
 export const showDadosSalvos = () => {
-	itens.forEach((item) => {
-		addDadosTabela(item)
-	})
+  itens.forEach((item) => {
+    addDadosTabela(item)
+  })
 }

@@ -11,56 +11,55 @@ import { salvaLocalStorage, dados, itens } from './localStorageHandle.js'
  *
  */
 export const submitHandle = (e) => {
-	try {
-		e.preventDefault()
+  try {
+    e.preventDefault()
 
-		// Obtém os valores dos elementos do formulário
-		const formElements = document.querySelector('#papelForm').elements
+    // Obtém os valores dos elementos do formulário
+    const formElements = document.querySelector('#papelForm').elements
 
-		const objPrecoPapel = {}
+    const objPrecoPapel = {}
 
-		for (let ele of formElements) {
-			if (ele.name) {
-				objPrecoPapel[ele.name] = ele.value
-			}
-		}
+    for (let ele of formElements) {
+      if (ele.name) {
+        objPrecoPapel[ele.name] = ele.value
+      }
+    }
 
-		objPrecoPapel['id'] = Date.now()
+    objPrecoPapel['id'] = Date.now()
 
-		const dadosSanitizados = sanitizaCampos(objPrecoPapel)
+    const dadosSanitizados = sanitizaCampos(objPrecoPapel)
 
-		if (!dadosSanitizados) {
-			showSnackbar('Erro na validação dos campos.', 5000)
-			return
-		}
+    if (!dadosSanitizados) {
+      showSnackbar('Erro na validação dos campos.', 5000)
+      return
+    }
 
-		dadosSanitizados['precoPorMetro'] =
-			calculatePricePerMeterAdjusted(dadosSanitizados)
+    dadosSanitizados['precoPorMetro'] =
+      calculatePricePerMeterAdjusted(dadosSanitizados)
 
-		itens.push(dadosSanitizados)
+    itens.push(dadosSanitizados)
 
-		itens.forEach((item) => (item['lowPrice'] = false))
+    itens.forEach((item) => (item['lowPrice'] = false))
 
-		itens.sort(
-			(a, b) =>
-				calculatePricePerMeterAdjusted(a) -
-				calculatePricePerMeterAdjusted(b)
-		)[0]['lowPrice'] = true
+    itens.sort(
+      (a, b) =>
+        calculatePricePerMeterAdjusted(a) - calculatePricePerMeterAdjusted(b)
+    )[0]['lowPrice'] = true
 
-		salvaLocalStorage('preco-papel', dados)
+    salvaLocalStorage('preco-papel', dados)
 
-		addDadosTabela(dadosSanitizados)
+    addDadosTabela(dadosSanitizados)
 
-		// Limpar o formulário após submissão
-		document.querySelector('form').reset()
+    // Limpar o formulário após submissão
+    document.querySelector('form').reset()
 
-		showSnackbar(
-			`Papel higiênico ${dadosSanitizados.nome || ''} de R$ ${parseFloat(
-				dadosSanitizados.precoPacote
-			).toFixed(2)} adicionado`
-		)
-	} catch (error) {
-		showSnackbar('Erro ao processar a submissão.')
-		console.error(error)
-	}
+    showSnackbar(
+      `Papel higiênico ${dadosSanitizados.nome || ''} de R$ ${parseFloat(
+        dadosSanitizados.precoPacote
+      ).toFixed(2)} adicionado`
+    )
+  } catch (error) {
+    showSnackbar('Erro ao processar a submissão.')
+    console.error(error)
+  }
 }

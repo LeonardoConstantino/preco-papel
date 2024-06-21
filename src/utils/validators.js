@@ -18,13 +18,13 @@ import { showSnackbar } from './showSnackbar.js'
  * // Exibirá uma mensagem de erro: "Por favor, preencha o campo Sobrenome corretamente."
  */
 const validateTextField = (value, fieldName) => {
-	if (!value.trim()) {
-		const errorMessage = `Por favor, preencha o campo ${fieldName} corretamente.`
-		showSnackbar(errorMessage)
-		console.error(errorMessage)
-		return null
-	}
-	return value.trim()
+  if (!value.trim()) {
+    const errorMessage = `Por favor, preencha o campo ${fieldName} corretamente.`
+    showSnackbar(errorMessage)
+    console.error(errorMessage)
+    return null
+  }
+  return value.trim()
 }
 
 /**
@@ -45,14 +45,14 @@ const validateTextField = (value, fieldName) => {
  * // Exibirá uma mensagem de erro: "Por favor, preencha o campo Altura com um número válido."
  */
 const validateFloatField = (value, fieldName) => {
-	const floatValue = parseFloat(value)
-	if (isNaN(floatValue) || floatValue <= 0) {
-		const errorMessage = `Por favor, preencha o campo ${fieldName} com um número válido.`
-		showSnackbar(errorMessage)
-		console.error(errorMessage)
-		return null
-	}
-	return floatValue
+  const floatValue = parseFloat(value)
+  if (isNaN(floatValue) || floatValue <= 0) {
+    const errorMessage = `Por favor, preencha o campo ${fieldName} com um número válido.`
+    showSnackbar(errorMessage)
+    console.error(errorMessage)
+    return null
+  }
+  return floatValue
 }
 
 /**
@@ -73,14 +73,14 @@ const validateFloatField = (value, fieldName) => {
  * // Exibirá uma mensagem de erro: "Por favor, preencha o campo Quantidade com um número válido."
  */
 const validateIntField = (value, fieldName) => {
-	const intValue = parseInt(value, 10)
-	if (isNaN(intValue) || intValue <= 0) {
-		const errorMessage = `Por favor, preencha o campo ${fieldName} com um número válido.`
-		showSnackbar(errorMessage)
-		console.error(errorMessage)
-		return null
-	}
-	return intValue
+  const intValue = parseInt(value, 10)
+  if (isNaN(intValue) || intValue <= 0) {
+    const errorMessage = `Por favor, preencha o campo ${fieldName} com um número válido.`
+    showSnackbar(errorMessage)
+    console.error(errorMessage)
+    return null
+  }
+  return intValue
 }
 
 /**
@@ -118,24 +118,24 @@ const validateIntField = (value, fieldName) => {
  * // }
  */
 export const sanitizaCampos = (obj) => {
-	const sanitizedObj = {
-		nome: validateTextField(obj.nome, 'Nome'),
-		tipoFolha: validateTextField(obj.tipoFolha, 'Tipo de Folha'),
-		metrosRolo: validateFloatField(obj.metrosRolo, 'Metros por Rolo'),
-		quantidadeRolos: validateIntField(
-			obj.quantidadeRolos,
-			'Quantidade de Rolos'
-		),
-		precoPacote: validateFloatField(obj.precoPacote, 'Preço do Pacote'),
-		id: obj.id,
-	}
+  const sanitizedObj = {
+    nome: validateTextField(obj.nome, 'Nome'),
+    tipoFolha: validateTextField(obj.tipoFolha, 'Tipo de Folha'),
+    metrosRolo: validateFloatField(obj.metrosRolo, 'Metros por Rolo'),
+    quantidadeRolos: validateIntField(
+      obj.quantidadeRolos,
+      'Quantidade de Rolos'
+    ),
+    precoPacote: validateFloatField(obj.precoPacote, 'Preço do Pacote'),
+    id: obj.id,
+  }
 
-	// Handle case where validation fails for any field
-	if (Object.values(sanitizedObj).includes(null)) {
-		showSnackbar('Erro na validação dos campos.')
-		console.error('Erro na validação dos campos.', sanitizedObj)
-		return null
-	}
+  // Handle case where validation fails for any field
+  if (Object.values(sanitizedObj).includes(null)) {
+    showSnackbar('Erro na validação dos campos.')
+    console.error('Erro na validação dos campos.', sanitizedObj)
+    return null
+  }
 
-	return sanitizedObj
+  return sanitizedObj
 }

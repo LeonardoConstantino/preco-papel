@@ -20,31 +20,31 @@ const activeSnackbar = new Set()
  * // Exibirá uma mensagem Snackbar com o texto "Operação realizada com sucesso!" por 5 segundos.
  */
 const createSnackbar = (text, duration) => {
-	let snackbarContainer = document.querySelector('.snackbar-container')
-	if (!snackbarContainer) {
-		snackbarContainer = renderElement(
-			getDiv({ class: 'snackbar-container' }),
-			true
-		)
-	}
-	const snackbar = renderElement(getSnackbar(text), true, snackbarContainer)
-	snackbar.className = 'show'
+  let snackbarContainer = document.querySelector('.snackbar-container')
+  if (!snackbarContainer) {
+    snackbarContainer = renderElement(
+      getDiv({ class: 'snackbar-container' }),
+      true
+    )
+  }
+  const snackbar = renderElement(getSnackbar(text), true, snackbarContainer)
+  snackbar.className = 'show'
 
-	// Adicionar ID único ao snackbar
-	const snackbarId = `snackbar-${Date.now()}`
-	snackbar.dataset['id'] = snackbarId
-	activeSnackbar.add(snackbarId)
+  // Adicionar ID único ao snackbar
+  const snackbarId = `snackbar-${Date.now()}`
+  snackbar.dataset['id'] = snackbarId
+  activeSnackbar.add(snackbarId)
 
-	// Remover o snackbar após a duração especificada
-	setTimeout(() => {
-		snackbar.remove()
-		activeSnackbar.delete(snackbarId)
+  // Remover o snackbar após a duração especificada
+  setTimeout(() => {
+    snackbar.remove()
+    activeSnackbar.delete(snackbarId)
 
-		// Remover o container se não houver mais snackbars ativos
-		if (activeSnackbar.size === 0 && snackbarContainer) {
-			snackbarContainer.remove()
-		}
-	}, duration)
+    // Remover o container se não houver mais snackbars ativos
+    if (activeSnackbar.size === 0 && snackbarContainer) {
+      snackbarContainer.remove()
+    }
+  }, duration)
 }
 
 /**
@@ -59,5 +59,5 @@ const createSnackbar = (text, duration) => {
  * // Exibirá uma mensagem Snackbar com o texto "Operação realizada com sucesso!" por 5 segundos.
  */
 export const showSnackbar = (text, duration = 3000) => {
-	createSnackbar(text, duration)
+  createSnackbar(text, duration)
 }

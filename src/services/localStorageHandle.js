@@ -10,7 +10,7 @@
  * // Isso irá armazenar um objeto com uma propriedade 'itens' vazia no localStorage sob a chave 'preco-papel'.
  */
 export const salvaLocalStorage = (nome, item) => {
-	localStorage.setItem(nome, JSON.stringify(item))
+  localStorage.setItem(nome, JSON.stringify(item))
 }
 
 /**
@@ -20,7 +20,7 @@ export const salvaLocalStorage = (nome, item) => {
  * @type {Object}
  */
 export const dados = JSON.parse(localStorage.getItem('preco-papel')) || {
-	itens: [],
+  itens: [],
 }
 
 /**

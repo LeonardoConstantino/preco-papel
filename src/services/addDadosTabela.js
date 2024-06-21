@@ -1,8 +1,8 @@
 import { mostrarMaisBarato } from './mostrarMaisBarato.js'
 import {
-	capitalizeFirstLetter,
-	getComponent,
-	getTextComponent,
+  capitalizeFirstLetter,
+  getComponent,
+  getTextComponent,
 } from '../utils/helpers.js'
 import { renderElement } from '../utils/renderElement.js'
 import { RemoveItemHandler } from './clickHandler.js'
@@ -33,54 +33,50 @@ import { RemoveItemHandler } from './clickHandler.js'
  * // Isso irá adicionar uma linha à tabela com os dados fornecidos e destacar o papel higiênico mais barato.
  */
 export const addDadosTabela = (dados) => {
-	const {
-		nome,
-		tipoFolha,
-		metrosRolo,
-		quantidadeRolos,
-		precoPacote,
-		id,
-		precoPorMetro,
-		lowPrice,
-	} = dados
+  const {
+    nome,
+    tipoFolha,
+    metrosRolo,
+    quantidadeRolos,
+    precoPacote,
+    id,
+    precoPorMetro,
+    lowPrice,
+  } = dados
 
-	// Adicionando os dados na tabela
-	const tabela = document
-		.getElementById('papelTable')
-		.getElementsByTagName('tbody')[0]
+  // Adicionando os dados na tabela
+  const tabela = document
+    .getElementById('papelTable')
+    .getElementsByTagName('tbody')[0]
 
-	const tr = {
-		type: 'tr',
-		props: {
-			'data-id': id,
-			title: 'Dois clicks para remover e mais um para cancelar',
-			onclick: RemoveItemHandler,
-			class: lowPrice ? 'destaque' : '',
-			children: [
-				getComponent('td', getTextComponent(nome || 'N/A')),
-				getComponent(
-					'td',
-					getTextComponent(capitalizeFirstLetter(tipoFolha))
-				),
-				getComponent(
-					'td',
-					getTextComponent(parseFloat(metrosRolo).toFixed(2))
-				),
-				getComponent('td', getTextComponent(parseInt(quantidadeRolos))),
-				getComponent(
-					'td',
-					getTextComponent(`R$ ${parseFloat(precoPacote).toFixed(2)}`)
-				),
-				getComponent(
-					'td',
-					getTextComponent(`R$ ${precoPorMetro.toFixed(4)}`)
-				),
-			],
-		},
-	}
+  const tr = {
+    type: 'tr',
+    props: {
+      'data-id': id,
+      title: 'Dois clicks para remover e mais um para cancelar',
+      onclick: RemoveItemHandler,
+      class: lowPrice ? 'destaque' : '',
+      children: [
+        getComponent('td', getTextComponent(nome)),
+        getComponent('td', getTextComponent(capitalizeFirstLetter(tipoFolha))),
+        getComponent('td', getTextComponent(metrosRolo)),
+        getComponent('td', getTextComponent(quantidadeRolos)),
+        getComponent(
+          'td',
+          getTextComponent(`R$ ${precoPacote.toString().replace('.', ',')}`)
+        ),
+        getComponent(
+          'td',
+          getTextComponent(
+            `R$ ${precoPorMetro.toFixed(4).toString().replace('.', ',')}`
+          )
+        ),
+      ],
+    },
+  }
 
-	renderElement(tr, true, tabela)
+  renderElement(tr, true, tabela)
 
-	// Exibindo o papel higiênico mais barato
-	mostrarMaisBarato()
+  // Exibindo o papel higiênico mais barato
+  mostrarMaisBarato()
 }

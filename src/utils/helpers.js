@@ -5,12 +5,12 @@
  * @returns {string} - A string com a primeira letra em maiúsculo.
  */
 export const capitalizeFirstLetter = (str) => {
-	// Verifica se o argumento fornecido é uma string não vazia
-	if (typeof str !== 'string' || str.length === 0) {
-		return ''
-	}
-	// Converte a primeira letra para maiúsculo e junta com o restante da string
-	return str.charAt(0).toUpperCase() + str.slice(1)
+  // Verifica se o argumento fornecido é uma string não vazia
+  if (typeof str !== 'string' || str.length === 0) {
+    return ''
+  }
+  // Converte a primeira letra para maiúsculo e junta com o restante da string
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 /**
@@ -20,12 +20,12 @@ export const capitalizeFirstLetter = (str) => {
  * @returns {ComponentConfig} As configurações para criar um componente genérico.
  */
 export const getComponent = (type, ...children) => {
-	return {
-		type: type,
-		props: {
-			children: [...children],
-		},
-	}
+  return {
+    type: type,
+    props: {
+      children: [...children],
+    },
+  }
 }
 
 /**
@@ -34,12 +34,12 @@ export const getComponent = (type, ...children) => {
  * @returns {TextComponentConfig} As configurações para criar um componente de texto.
  */
 export const getTextComponent = (text) => {
-	return {
-		type: null,
-		props: {
-			nodeValue: text,
-		},
-	}
+  return {
+    type: null,
+    props: {
+      nodeValue: text,
+    },
+  }
 }
 
 /**
@@ -57,18 +57,14 @@ export const getTextComponent = (text) => {
  * @returns {number} O preço por metro ajustado.
  */
 export const calculatePricePerMeterAdjusted = (dados) => {
-	const { tipoFolha, metrosRolo, quantidadeRolos, precoPacote } = dados
+  const { tipoFolha, metrosRolo, quantidadeRolos, precoPacote } = dados
 
-	// Calculando o preço por metro ajustado de acordo com o tipo de folha
-	const ajusteFolha = {
-		simples: 1,
-		dupla: 2,
-		tripla: 3,
-	}
+  // Calculando o preço por metro ajustado de acordo com o tipo de folha
+  const ajusteFolha = {
+    simples: 1,
+    dupla: 2,
+    tripla: 3,
+  }
 
-	return (
-		parseFloat(precoPacote) /
-		(parseFloat(metrosRolo) * parseInt(quantidadeRolos)) /
-		ajusteFolha[tipoFolha]
-	)
+  return precoPacote / ((metrosRolo * quantidadeRolos) / ajusteFolha[tipoFolha])
 }

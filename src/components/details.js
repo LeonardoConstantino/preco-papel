@@ -16,34 +16,31 @@ import { getComponent, getTextComponent } from '../utils/helpers.js'
  *
  */
 export const getDetails = (textOpen, textClose, open, ...children) => {
-	const detailsToggleHandler = (e) => {
-		const summary = e.target.firstChild
-		const details = e.target
+  const detailsToggleHandler = (e) => {
+    const summary = e.target.firstChild
+    const details = e.target
 
-		if (details.open) {
-			summary.firstElementChild.textContent = textOpen
-			summary.nextSibling.classList.add('open')
-			return
-		}
-		summary.firstElementChild.textContent = textClose
-		summary.nextSibling.classList.remove('open')
-	}
+    if (details.open) {
+      summary.firstElementChild.textContent = textOpen
+      summary.nextSibling.classList.add('open')
+      return
+    }
+    summary.firstElementChild.textContent = textClose
+    summary.nextSibling.classList.remove('open')
+  }
 
-	const details = {
-		type: 'details',
-		props: {
-			ontoggle: detailsToggleHandler,
-			children: [
-				getComponent(
-					'summary',
-					getComponent('p', getTextComponent(textClose))
-				),
-				...children,
-			],
-		},
-	}
+  const details = {
+    type: 'details',
+    props: {
+      ontoggle: detailsToggleHandler,
+      children: [
+        getComponent('summary', getComponent('p', getTextComponent(textClose))),
+        ...children,
+      ],
+    },
+  }
 
-	if (open) details.props['open'] = ''
+  if (open) details.props['open'] = ''
 
-	return details
+  return details
 }

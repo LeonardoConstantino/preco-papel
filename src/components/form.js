@@ -3,39 +3,40 @@ import { capitalizeFirstLetter, getTextComponent } from '../utils/helpers.js'
 import { getDetails } from './details.js'
 
 const getLabel = (para, content) => {
-	return {
-		type: 'label',
-		props: {
-			for: para,
-			children: [getTextComponent(content)],
-		},
-	}
+  return {
+    type: 'label',
+    props: {
+      for: para,
+      children: [getTextComponent(content)],
+    },
+  }
 }
 
 const getInput = (type, name, placeholder, required = false) => {
-	const input = {
-		type: 'input',
-		props: {
-			type,
-			name,
-			id: name,
-			placeholder,
-		},
-	}
+  const input = {
+    type: 'input',
+    props: {
+      type,
+      name,
+      id: name,
+      placeholder,
+      step: '0.01',
+    },
+  }
 
-	if (required) input.props['required'] = ''
+  if (required) input.props['required'] = ''
 
-	return input
+  return input
 }
 
 const getOption = (value) => {
-	return {
-		type: 'option',
-		props: {
-			value: value,
-			children: [getTextComponent(capitalizeFirstLetter(value))],
-		},
-	}
+  return {
+    type: 'option',
+    props: {
+      value: value,
+      children: [getTextComponent(capitalizeFirstLetter(value))],
+    },
+  }
 }
 
 const labelNomePapel = getLabel('nome', 'Nome do Papel Higiênico:')
@@ -43,17 +44,13 @@ const inputNomePapel = getInput('text', 'nome', 'Coloque o nome do papel', true)
 
 const labelTipoFolha = getLabel('tipoFolha', 'Tipo de Folha:')
 const selectTipoFolha = {
-	type: 'select',
-	props: {
-		id: 'tipoFolha',
-		name: 'tipoFolha',
-		required: '',
-		children: [
-			getOption('simples'),
-			getOption('dupla'),
-			getOption('tripla'),
-		],
-	},
+  type: 'select',
+  props: {
+    id: 'tipoFolha',
+    name: 'tipoFolha',
+    required: '',
+    children: [getOption('simples'), getOption('dupla'), getOption('tripla')],
+  },
 }
 
 const labelMetrosRolo = getLabel('metrosRolo', 'Quantidade de Metros por Rolo:')
@@ -63,38 +60,38 @@ const labelQuantidadeRolos = getLabel('quantidadeRolos', 'Quantidade de Rolos:')
 const inputQuantidadeRolos = getInput('number', 'quantidadeRolos', '', true)
 
 const labelPrecoPacote = getLabel(
-	'precoPacote',
-	'Preço do Pacote de Papel (R$):'
+  'precoPacote',
+  'Preço do Pacote de Papel (R$):'
 )
 const inputPrecoPacote = getInput('number', 'precoPacote', '', true)
 
 const btnSubmit = {
-	type: 'button',
-	props: {
-		type: 'submit',
-		children: [getTextComponent('Calcular')],
-	},
+  type: 'button',
+  props: {
+    type: 'submit',
+    children: [getTextComponent('Calcular')],
+  },
 }
 
 const form = {
-	type: 'form',
-	props: {
-		id: 'papelForm',
-		onSubmit: submitHandle,
-		children: [
-			labelNomePapel,
-			inputNomePapel,
-			labelTipoFolha,
-			selectTipoFolha,
-			labelMetrosRolo,
-			inputMetrosRolo,
-			labelQuantidadeRolos,
-			inputQuantidadeRolos,
-			labelPrecoPacote,
-			inputPrecoPacote,
-			btnSubmit,
-		],
-	},
+  type: 'form',
+  props: {
+    id: 'papelForm',
+    onSubmit: submitHandle,
+    children: [
+      labelNomePapel,
+      inputNomePapel,
+      labelTipoFolha,
+      selectTipoFolha,
+      labelMetrosRolo,
+      inputMetrosRolo,
+      labelQuantidadeRolos,
+      inputQuantidadeRolos,
+      labelPrecoPacote,
+      inputPrecoPacote,
+      btnSubmit,
+    ],
+  },
 }
 
 const textOpem = 'Esconder formulário'
