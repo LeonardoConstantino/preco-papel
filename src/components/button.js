@@ -38,7 +38,7 @@ export const createButton = (
   const icon = {
     type: 'i',
     props: {
-      style: `background-image: url(${iconUrl})`,
+      style: `background-image: url("${iconUrl}")`,
     },
   }
 

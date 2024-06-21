@@ -61,9 +61,9 @@ const toggleSortOrder = (btn, isAscending) => {
  * updateSortIcon(sortIcon, ascending); // Atualiza o ícone de ordenação para a direção ascendente
  */
 const updateSortIcon = (btnI, isAscending) => {
-  btnI.style.backgroundImage = `url(${
+  btnI.style.backgroundImage = `url("${
     isAscending ? sortDescending : sortAscending
-  })`
+  }")`
 }
 
 /**
