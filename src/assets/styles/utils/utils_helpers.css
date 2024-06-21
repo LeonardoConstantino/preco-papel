@@ -31,6 +31,7 @@
 .result {
   /* margin-top: 20px; */
   padding: 10px 30px;
+  text-wrap: balance;
   text-align: center;
 }
 
@@ -82,9 +83,9 @@ i {
   background-repeat: no-repeat;
   width: 32px;
   height: 32px;
-  transform: scale(0.6) translate(6px, 16px);
+  /* transform: scale(0.6) translate(6px, 16px); */
 }
 
-i.copy {
+/* i.copy {
   background-image: url('../../images/copy.svg');
-}
+} */

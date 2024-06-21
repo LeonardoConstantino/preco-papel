@@ -1,5 +1,6 @@
 import { getDetails } from '../components/details.js'
 import { getTextComponent, getComponent } from '../utils/helpers.js'
+import copy from '../assets/images/copy.svg'
 
 const currentYear = getTextComponent(` ${new Date().getFullYear()}`)
 const autor = getTextComponent(' Leonardo H. Constantino')
@@ -19,7 +20,7 @@ const details = getDetails(
 const icone = {
   type: 'i',
   props: {
-    class: 'copy',
+    style: `background-image: url(${copy})`,
   },
 }
 

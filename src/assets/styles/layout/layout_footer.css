@@ -14,3 +14,7 @@ footer {
 footer summary {
   background-color: var(--background-alt);
 }
+
+footer i {
+  transform: scale(0.6) translate(6px, 16px);
+}

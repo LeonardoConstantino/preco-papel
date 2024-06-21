@@ -18,6 +18,7 @@ table td {
 @media screen and (max-width: 480px) {
   table {
     margin: 2% auto;
+    font-size: calc(100% - 0.4vw);
   }
 
   table thead {

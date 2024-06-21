@@ -14,12 +14,14 @@ import { calculatePricePerMeterAdjusted } from '../utils/helpers.js'
 /**
  * Destaca o item mais barato na tabela e exibe informações sobre ele.
  */
-export const mostrarMaisBarato = () => {
+export const mostrarMaisBarato = (sort = false) => {
+  if (sort) return
+
   // Seleciona todas as linhas da tabela
   const trs = document.querySelectorAll('tr')
 
   // Se não houver linhas, encerra a função
-  if (trs.length <= 1) return
+  if (itens.length === 0) return
 
   // Remove qualquer destaque das linhas
   trs.forEach((tr) => tr.classList.remove('destaque'))
@@ -36,16 +38,16 @@ export const mostrarMaisBarato = () => {
   )
 
   // Adiciona uma classe de destaque à linha mais barata
-  linhaMaisBarata.classList.add('destaque')
+  linhaMaisBarata?.classList.add('destaque')
 
   // Seleciona o elemento onde será exibida a informação sobre o item mais barato
   let divResult = document.querySelector('#result')
 
   // Se o elemento não existir, cria um novo e insere antes da tabela
   if (!divResult) {
-    const tabela = document.querySelector('#papelTable > tbody')
+    const tabela = document.querySelector('form')
     divResult = renderElement(getDiv({ class: 'result', id: 'result' }), true)
-    tabela.parentElement.insertAdjacentElement('beforeBegin', divResult)
+    tabela.parentElement.insertAdjacentElement('afterend', divResult)
   }
 
   // Exibe a informação sobre o item mais barato
@@ -55,7 +57,7 @@ export const mostrarMaisBarato = () => {
     .toFixed(4)
     .toString()
     .replace('.', ',')}</span><br><br>
-	<small /*style="font-size: 12px"*/>O preço por metro é ajustado como se todos fossem folhas simples, para manter a consistência dos valores</small>`
+	<small>O preço por metro é ajustado como se todos fossem folhas simples, para manter a consistência dos valores</small>`
 }
 ;`
 [

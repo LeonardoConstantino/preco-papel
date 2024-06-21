@@ -32,7 +32,7 @@ import { RemoveItemHandler } from './clickHandler.js'
  * addDadosTabela(dados);
  * // Isso irá adicionar uma linha à tabela com os dados fornecidos e destacar o papel higiênico mais barato.
  */
-export const addDadosTabela = (dados) => {
+export const addDadosTabela = (dados, sort = false) => {
   const {
     nome,
     tipoFolha,
@@ -45,9 +45,7 @@ export const addDadosTabela = (dados) => {
   } = dados
 
   // Adicionando os dados na tabela
-  const tabela = document
-    .getElementById('papelTable')
-    .getElementsByTagName('tbody')[0]
+  const tabela = document.querySelector('#papelTable > tbody')
 
   const tr = {
     type: 'tr',
@@ -78,5 +76,5 @@ export const addDadosTabela = (dados) => {
   renderElement(tr, true, tabela)
 
   // Exibindo o papel higiênico mais barato
-  mostrarMaisBarato()
+  mostrarMaisBarato(sort)
 }

@@ -1,6 +1,7 @@
 import { getComponent, getTextComponent } from '../utils/helpers.js'
+import { dropdown } from './dropdown.js'
 
-export const table = {
+export const table = getComponent('div', dropdown, {
   type: 'table',
   props: {
     id: 'papelTable',
@@ -20,4 +21,4 @@ export const table = {
       getComponent('tbody'),
     ],
   },
-}
+})

@@ -22,7 +22,7 @@ summary::before {
   background-size: cover;
   transition: 0.3s;
 }
-details[open] > summary:after {
+details[open] > summary:before {
   transform: rotate(180deg);
 }
 summary:hover,

@@ -1,6 +1,6 @@
 import { getTextComponent } from '../utils/helpers.js'
 
-export const h1 = {
+export const title = {
   type: 'div',
   props: {
     class: 'container',

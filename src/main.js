@@ -1,12 +1,13 @@
 // Importando estilos, componentes, serviços e utilitários
 import './assets/styles/main.css'
 import { renderElement } from './utils/renderElement.js'
-import { h1 } from './components/h1.js'
+import { title } from './components/title.js'
 import { details } from './components/form.js'
 import { table } from './components/table.js'
 import { footer } from './layout/footer.js'
 import { showDadosSalvos } from './services/showDadosSalvos.js'
 import { showSnackbar } from './utils/showSnackbar.js'
+import { dropdown } from './components/dropdown'
 
 /**
  * Função principal para inicializar a aplicação quando o DOM estiver totalmente carregado.
@@ -20,11 +21,12 @@ const main = () => {
     const app = document.querySelector('#app')
 
     // Renderiza o componente h1 dentro do elemento 'app'
-    renderElement(h1, true, app)
+    renderElement(title, true, app)
 
     // Renderiza o componente details dentro do elemento 'app'
     renderElement(details, true, app)
 
+    // renderElement(dropdown, true, app)
     // Renderiza o componente table dentro do elemento 'app'
     renderElement(table, true, app)
 
