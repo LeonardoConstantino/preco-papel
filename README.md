@@ -2,7 +2,7 @@
 
 ### [preview do projeto](https://leonardoconstantino.github.io/preco-papel/)
 
-[Detalhes da arquitetura de arquivos](https://github.com/LeonardoConstantino/preco-papel/blob/main/estrutura.md)
+[Detalhes da arquitetura de arquivos](https://github.com/LeonardoConstantino/preco-papel/blob/master/estrutura.md)
 
 ## Descrição
 
