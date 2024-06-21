@@ -50,7 +50,7 @@ Após a instalação, siga os passos abaixo para rodar o projeto:
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/LeonardoConstantino/preco-papel/blob/main/LICENSE.txt) para mais detalhes.
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/LeonardoConstantino/preco-papel/blob/master/LICENSE.txt) para mais detalhes.
 
 ## Créditos
 
@@ -83,7 +83,7 @@ Autor: Leonardo H. Constantino
 </div>
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/LeonardoConstantino/preco-papel/master/src/assets/images/print.jpg" alt="Sample screenshot" width="400">
+    <img src="https://raw.githubusercontent.com/LeonardoConstantino/preco-papel/master/src/assets/images/print.png" alt="Sample screenshot" width="400">
 </div>
 
 #### Se precisar de alguma informação sobre o projeto estou a disposição, avise-me!
