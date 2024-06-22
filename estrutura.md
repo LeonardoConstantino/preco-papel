@@ -9,20 +9,23 @@
     ┃ ┃ ┃ ┣ 📜copy.svg
     ┃ ┃ ┃ ┣ 📜favicon-16x16.png
     ┃ ┃ ┃ ┣ 📜paper_illustra.jpg
-    ┃ ┃ ┃ ┗ 📜print.png
+    ┃ ┃ ┃ ┣ 📜paper_illustra.webp
+    ┃ ┃ ┃ ┣ 📜print.png
+    ┃ ┃ ┃ ┣ 📜sort-ascending.svg
+    ┃ ┃ ┃ ┗ 📜sort-descending.svg
     ┃ ┃ ┗ 📂styles
     ┃ ┃ ┃ ┣ 📂base
     ┃ ┃ ┃ ┃ ┣ 📜_reset.css
     ┃ ┃ ┃ ┃ ┗ 📜_typography.css
     ┃ ┃ ┃ ┣ 📂components
     ┃ ┃ ┃ ┃ ┣ 📜_details.css
+    ┃ ┃ ┃ ┃ ┣ 📜_dropdown.css
     ┃ ┃ ┃ ┃ ┣ 📜_form.css
     ┃ ┃ ┃ ┃ ┣ 📜_snackbar.css
     ┃ ┃ ┃ ┃ ┗ 📜_table.css
     ┃ ┃ ┃ ┣ 📂layout
     ┃ ┃ ┃ ┃ ┣ 📜layout_body.css
-    ┃ ┃ ┃ ┃ ┣ 📜layout_footer.css
-    ┃ ┃ ┃ ┃ ┗ 📜layout_main.css
+    ┃ ┃ ┃ ┃ ┗ 📜layout_footer.css
     ┃ ┃ ┃ ┣ 📂themes
     ┃ ┃ ┃ ┃ ┗ 📜themes_print.css
     ┃ ┃ ┃ ┣ 📂utils
@@ -31,17 +34,20 @@
     ┃ ┃ ┃ ┃ ┗ 📜vendors_water.css
     ┃ ┃ ┃ ┗ 📜main.css
     ┃ ┣ 📂components
+    ┃ ┃ ┣ 📜button.js
     ┃ ┃ ┣ 📜details.js
     ┃ ┃ ┣ 📜div.js
+    ┃ ┃ ┣ 📜dropdown.js
     ┃ ┃ ┣ 📜form.js
-    ┃ ┃ ┣ 📜h1.js
     ┃ ┃ ┣ 📜snackbar.js
-    ┃ ┃ ┗ 📜table.js
+    ┃ ┃ ┣ 📜table.js
+    ┃ ┃ ┗ 📜title.js
     ┃ ┣ 📂layout
     ┃ ┃ ┗ 📜footer.js
     ┃ ┣ 📂services
     ┃ ┃ ┣ 📜addDadosTabela.js
     ┃ ┃ ┣ 📜clickHandler.js
+    ┃ ┃ ┣ 📜handleSortList.js
     ┃ ┃ ┣ 📜localStorageHandle.js
     ┃ ┃ ┣ 📜mostrarMaisBarato.js
     ┃ ┃ ┣ 📜showDadosSalvos.js
