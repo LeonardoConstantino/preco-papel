@@ -1,30 +1,21 @@
-:root {
-  --arrow-image: url('../../images/arrow.svg');
-}
-
 details {
   width: 100%;
 }
+
 summary {
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-between;
+  gap: 12px;
 }
-summary p {
-  width: 85%;
-}
-summary::before {
-  content: '';
-  background-image: var(--arrow-image);
-  display: block;
-  width: 32px;
-  height: 32px;
-  background-size: cover;
+
+ summary i.arrow {
   transition: 0.3s;
 }
-details[open] > summary:before {
+
+details[open] > summary i.arrow {
   transform: rotate(180deg);
 }
+
 summary:hover,
 summary:focus {
   text-decoration: none;

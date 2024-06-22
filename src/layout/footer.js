@@ -20,6 +20,7 @@ const details = getDetails(
 const icone = {
   type: 'i',
   props: {
+    class: 'copy',
     style: `background-image: url("${copy}")`,
   },
 }

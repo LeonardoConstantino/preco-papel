@@ -1,4 +1,14 @@
 import { getComponent, getTextComponent } from '../utils/helpers.js'
+import arrow from '../assets/images/arrow.svg'
+
+const icon = {
+  type: 'i',
+  props: {
+    class: 'arrow',
+    style: `background-image: url("${arrow}")`,
+  },
+}
+
 
 /**
  * Função para criar um componente de detalhes.
@@ -34,7 +44,15 @@ export const getDetails = (textOpen, textClose, open, ...children) => {
     props: {
       ontoggle: detailsToggleHandler,
       children: [
-        getComponent('summary', getComponent('p', getTextComponent(textClose))),
+        getComponent(
+          'summary',
+           getComponent(
+            'p', 
+            getTextComponent(textClose)
+          ),
+          icon
+
+        ),
         ...children,
       ],
     },

@@ -15,6 +15,6 @@ footer summary {
   background-color: var(--background-alt);
 }
 
-footer i {
+footer i.copy {
   transform: scale(0.6) translate(6px, 16px);
 }
